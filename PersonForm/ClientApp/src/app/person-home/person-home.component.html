@@ -1,0 +1,67 @@
+<!-- <div class="container">
+
+  <h3>User List</h3>
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <td>  &nbsp; </td>
+        <td>  &nbsp;  </td>
+        <td>  &nbsp;  </td>
+        <td>  &nbsp;  </td>
+        <td>  <a (click)="ShowRegForm(p)">Add New</a></td>
+      </tr>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Phone</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success" *ngFor="let person of personlist ">
+        <td> {{person.id}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.surname}}</td>
+        <td>{{person.phone}}</td>
+        <td>{{person.address}}</td>
+        <td><a (click)="ShowRegForm(p)">Edit</a></td>
+        <td><a (click)="ShowRegFormForDelete(p)">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr >
+
+<form #regForm="ngForm">
+<div class="container" *ngIf="editCustomer">
+  <h3>{{FormHeader}}</h3>
+  <table class="table table-condensed">
+    <tbody>
+      <tr>
+        <td>First Name</td>
+        <td><input type="text" name="name" [(ngModel)]='name' ></td>
+        </tr>
+        <tr>
+        <td>Last Name</td>
+        <td><input type="text" name="surname" [(ngModel)]='surname'></td>
+        </tr>
+        <tr>
+        <td> Phone</td>
+        <td><input type="text" name="phone" [(ngModel)]='phone'></td>
+        </tr>
+        <tr>
+        <td> Address</td>
+        <td><input type="text" name="address" [(ngModel)]='address'></td>
+        </tr>
+        <tr>
+        <td><input type="hidden" name="id" [(ngModel)]='id'></td>
+        <td><input type="button" value="Save" (click)="Save(regForm)"></td>
+
+      </tr>
+    </tbody>
+  </table>
+ </div>
+</form>
+<button (click)="onDelete(p1)">usun test</button>
+ -->

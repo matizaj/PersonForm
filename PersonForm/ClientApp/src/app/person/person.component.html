@@ -1,0 +1,128 @@
+<div style="text-align:center">
+    <h2 class="jumbotron bg-secondary text-white">Formularz</h2>
+</div>
+<div *ngIf="personList.length==0" class="container">
+  <div class="col-md-12">
+    <h3>Brak użytkowników. Proszę użyć widoczny poniżej formularz aby dodać użytkowników</h3>
+  </div>
+</div>
+<div class="container">
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr style="text-align:center;">
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Telefon</th>
+      <th>Adres</th>
+      <th>Akcja</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of personList"  style="text-align:center;">
+      <td>{{p.name}}</td>
+      <td>{{p.surname}}</td>
+      <td>{{p.phone}}</td>
+      <td>{{p.address}}</td>
+      <td>
+        <a class="btn" (click)="showForEdit(p)">Edytuj</a>
+        |
+        <a class="btn" (click)="onDelete(p.id)">Usuń</a>
+    </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="container">
+  <form #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
+    <input type="hidden" name="id" #idperson="ngModel" [(ngModel)]="personService.selectedPerson.id"/>
+    <div class="form-group">
+      <label for="name">Imię</label>
+      <input type="text" 
+      class="form-control" 
+      name="name" [(ngModel)]="personService.selectedPerson.name" 
+      id="name"  
+      placeholder="Wpisz imię" 
+      required>
+    </div>
+
+    <div class="form-group">
+      <label for="surname">Nazwisko</label>
+      <input type="text" 
+      class="form-control" 
+      name="surname" 
+      [(ngModel)]="personService.selectedPerson.surname" 
+      id="surname" 
+      placeholder="Wpisz nazwisko"
+      required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Telefon</label>
+      <input type="text" 
+      class="form-control" 
+      name="phone" 
+      [(ngModel)]="personService.selectedPerson.phone" 
+      id="phone"
+      placeholder="Wpisz numer telefonu"
+      required>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Adres</label>
+      <input type="text" 
+      class="form-control" 
+      name="address" 
+      [(ngModel)]="personService.selectedPerson.address" 
+      id="address" 
+      placeholder="Wpisz swoj adres"
+      required>
+    </div>
+<div class="form-row">
+  <div class="form-group col-md-8">
+    <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="!personForm.form.valid">Dodaj użytkownika</button> 
+  </div>
+  <div class="form-group col-md-4">
+    <button type="button" class="btn btn-danger" (click)="resetForm(personForm)">Resetuj formularz</button>
+  </div>
+  </div>
+
+  </form>
+</div>
+<!-- {{personForm.value | json}} -->
+
+
+<!-- <form class="emp-form" #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
+  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="personService.selectedPerson.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]='personService.selectedPerson.name'>
+        placeholder="Name" required>
+      <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="surname" #surname="ngModel" [(ngModel)]="personService.selectedPerson.surname" placeholder="surname"
+        required>
+      <div class="validation-error" *ngIf="surname.invalid && surname.touched">This Field is Required.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="phone" #phone="ngModel" [(ngModel)]="personService.selectedPerson.phone" placeholder="phone">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="address" #address="ngModel" [(ngModel)]="personService.selectedPerson.address" placeholder="address">
+    </div>
+    
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!employeeForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+        <i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(employeeForm)">
+        <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form> -->
