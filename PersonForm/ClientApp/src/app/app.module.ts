@@ -7,15 +7,12 @@ import { AppComponent } from './app.component';
 import { PersonComponent } from './person/person.component';
 import {PersonService} from './services/person.service';
 import { HttpClient, HttpHandler} from '@angular/common/http';
-// import { PersonHomeComponent } from './person-home/person-home.component';
-import { AddUserComponent } from './add-user/add-user.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonComponent,
-    // PersonHomeComponent,
-    AddUserComponent
+    PersonComponent
   ],
   imports: [
     BrowserModule,

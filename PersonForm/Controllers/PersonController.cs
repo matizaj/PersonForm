@@ -49,7 +49,7 @@ namespace PersonForm.Controllers
         // PUT: api/Person/5  
         [HttpPut("{id}")]
         [Route("UpdatePerson")]
-        public ActionResult<Person> UpdatePerson(int id, Person person)
+        public ActionResult<Person> UpdatePerson([FromRoute]int id, [FromBody]Person person)
         {
             if (!ModelState.IsValid)
             {
