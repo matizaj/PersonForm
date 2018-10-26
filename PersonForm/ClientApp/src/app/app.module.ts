@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PersonComponent } from './person/person.component';
 import {PersonService} from './services/person.service';
-import { HttpClient, HttpHandler} from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -18,6 +18,7 @@ import { HttpClient, HttpHandler} from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [PersonService],
   bootstrap: [AppComponent]

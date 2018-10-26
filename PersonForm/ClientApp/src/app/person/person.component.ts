@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { PersonService} from './../services/person.service';
 import { Person } from './../person';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-person',
@@ -12,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class PersonComponent implements OnInit {
   person: Person[];
   personList: Person[];
-  constructor(private personService: PersonService) {
+  constructor(private personService: PersonService, private toastr: ToastrService) {
     this.populatePeople();
    }
 
@@ -43,13 +44,13 @@ onSubmit(form: NgForm) {
     this.personService.addPerson(form.value).subscribe(data => {
       this.resetForm(form);
       this.personService.getPeople().subscribe(person => this.personList = person);
-      alert('Użytkownik dodany');
+      this.toastr.success('Użytkownik dodany');
     });
   } else {
     this.personService.editPerson(form.value.id, form.value).subscribe(data => {
       this.resetForm(form);
       this.personService.getPeople().subscribe(person => this.personList = person);
-      alert('Użytkownik zaktualizowany');
+      this.toastr.info('Użytkownik zaktualizowany');
     });
   }
 }
@@ -61,7 +62,7 @@ onDelete(id: number) {
   if (confirm('Czy na pewno chcesz usunąźć tego użutkownika?')) {
   this.personService.deletePerson(id).subscribe(data => {
     this.personService.getPeople().subscribe(person => this.personList = person);
-    alert('Użytkownik usuniety');
+    this.toastr.warning('Użytkownik usuniety');
   });
   }
 }
