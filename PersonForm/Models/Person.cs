@@ -17,6 +17,7 @@ namespace PersonForm.Models
         [Required(ErrorMessage = "Nazwisko jest wymagane")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "Numer telefonu jest wymagany")]
+        [MinLength(9, ErrorMessage ="Numer telefonu musi mieć 9 znaków")]
         public string Phone { get; set; }
         [Required(ErrorMessage = "Adres jest wymagany")]
         public string Address { get; set; }
