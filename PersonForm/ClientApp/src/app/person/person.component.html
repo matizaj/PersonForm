@@ -24,9 +24,9 @@
       <td>{{p.phone}}</td>
       <td>{{p.address}}</td>
       <td>
-        <a class="btn" (click)="showForEdit(p)">Edytuj</a>
+        <a class="btn" (click)="showForEdit(p)"><i class="fa fa-pencil-square-o"></i></a>
         |
-        <a class="btn" (click)="onDelete(p.id)">Usuń</a>
+        <a class="btn" (click)="onDelete(p.id)"><i class="fa fa-trash-o"></i></a>
     </td>
     </tr>
   </tbody>
@@ -80,49 +80,13 @@
     </div>
 <div class="form-row">
   <div class="form-group col-md-8">
-    <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="!personForm.form.valid">Dodaj użytkownika</button> 
+    <button type="submit" class="btn btn-lg btn-block btn-info" [disabled]="!personForm.form.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i> Dodaj użytkownika</button> 
   </div>
   <div class="form-group col-md-4">
-    <button type="button" class="btn btn-danger" (click)="resetForm(personForm)">Resetuj formularz</button>
+    <button type="button" class="btn btn-danger" (click)="resetForm(personForm)"><i class="fa fa-refresh" aria-hidden="true"></i> Resetuj formularz</button>
   </div>
   </div>
 
   </form>
 </div>
-<!-- {{personForm.value | json}} -->
 
-
-<!-- <form class="emp-form" #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
-  <input type="hidden" name="id" #id="ngModel" [(ngModel)]="personService.selectedPerson.id">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <input class="form-control" name="name" #name="ngModel" [(ngModel)]='personService.selectedPerson.name'>
-        placeholder="Name" required>
-      <div class="validation-error" *ngIf="name.invalid && name.touched">This Field is Required.</div>
-    </div>
-    <div class="form-group col-md-6">
-      <input class="form-control" name="surname" #surname="ngModel" [(ngModel)]="personService.selectedPerson.surname" placeholder="surname"
-        required>
-      <div class="validation-error" *ngIf="surname.invalid && surname.touched">This Field is Required.</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <input class="form-control" name="phone" #phone="ngModel" [(ngModel)]="personService.selectedPerson.phone" placeholder="phone">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <input class="form-control" name="address" #address="ngModel" [(ngModel)]="personService.selectedPerson.address" placeholder="address">
-    </div>
-    
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-8">
-      <button [disabled]="!employeeForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
-        <i class="fa fa-floppy-o"></i> Submit</button>
-    </div>
-    <div class="form-group col-md-4">
-      <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(employeeForm)">
-        <i class="fa fa-repeat"></i> Reset</button>
-    </div>
-  </div>
-</form> -->
